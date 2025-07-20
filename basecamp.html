@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaseCamp - Dan Beardly Adventures</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    <style>
+        .adventure-card {
+            transition: all 0.3s ease;
+        }
+        .adventure-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+        
+        /* Crazy Effects */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(255, 193, 7, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(255, 193, 7, 0.8), 0 0 60px rgba(255, 193, 7, 0.6); }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateX(-100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        
+        @keyframes fadeInUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .floating { animation: float 3s ease-in-out infinite; }
+        .glowing { animation: glow 2s ease-in-out infinite; }
+        .pulsing { animation: pulse 2s ease-in-out infinite; }
+        .slide-in { animation: slideIn 1s ease-out; }
+        .fade-in-up { animation: fadeInUp 1s ease-out; }
+        .rotating { animation: rotate 10s linear infinite; }
+        
+        .neon-text {
+            text-shadow: 0 0 10px rgba(255, 193, 7, 0.8), 0 0 20px rgba(255, 193, 7, 0.6), 0 0 30px rgba(255, 193, 7, 0.4);
+        }
+        
+        .glass-effect {
+            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .hover-scale:hover {
+            transform: scale(1.1) rotate(5deg);
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-border {
+            background: linear-gradient(45deg, #ffd700, #ff6b6b, #4ecdc4, #45b7d1);
+            background-size: 400% 400%;
+            animation: gradientShift 3s ease infinite;
+        }
+        
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 193, 7, 0.7);
+            border-radius: 50%;
+            animation: particleFloat 6s ease-in-out infinite;
+        }
+        
+        @keyframes particleFloat {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0; }
+            10%, 90% { opacity: 1; }
+            50% { transform: translateY(-100px) translateX(50px); }
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    <!-- Navigation -->
+    <nav class="bg-[#1B3C53] py-4 px-6">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="md:text-1xl text-lg font-bold" style="font-family: 'Orbitron', sans-serif;">GridLess Media Solutions</h1>
+            <a href="index.html" class="bg-yellow-400 hover:bg-yellow-500 text-black font-bold py-2 px-3 md:px-4 text-sm md:text-base rounded transition-colors">
+                <span class="hidden sm:inline">Back to Home</span>
+                <span class="sm:hidden">Home</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-[#1B3C53] to-[#456882] py-20 relative overflow-hidden">
+        <!-- Floating Particles -->
+        <div class="particle" style="top: 10%; left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="top: 20%; left: 80%; animation-delay: 1s;"></div>
+        <div class="particle" style="top: 60%; left: 20%; animation-delay: 2s;"></div>
+        <div class="particle" style="top: 80%; left: 70%; animation-delay: 3s;"></div>
+        <div class="particle" style="top: 40%; left: 90%; animation-delay: 4s;"></div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-12 fade-in-up">
+                <h1 class="text-5xl font-bold mb-4 neon-text floating" style="font-family: 'Orbitron', sans-serif;">BaseCamp</h1>
+                <p class="text-xl text-yellow-300 mb-8 slide-in">Perfect for Startups and Local Shops</p>
+                <div class="text-4xl font-bold text-yellow-400 glowing pulsing" style="font-family: 'Orbitron', sans-serif;">$1500/MONTH</div>
+                
+                <!-- Rotating decorative element -->
+                <div class="absolute top-0 right-0 w-32 h-32 border-4 border-yellow-400 border-opacity-30 rounded-full rotating"></div>
+                <div class="absolute bottom-0 left-0 w-24 h-24 border-2 border-yellow-300 border-opacity-20 rounded-full rotating" style="animation-direction: reverse;"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="py-16 relative">
+        <!-- More floating particles -->
+        <div class="particle" style="top: 30%; left: 5%; animation-delay: 1.5s;"></div>
+        <div class="particle" style="top: 70%; left: 95%; animation-delay: 3.5s;"></div>
+        
+        <div class="container mx-auto px-6">
+            <div class="grid lg:grid-cols-2 gap-12 items-start">
+                <!-- Left Column - Image -->
+                <div class="relative fade-in-up">
+                   
+                        <img src="Images/basecamp.png" alt="BaseCamp Service" class="md:ml-32 w-96 h-full object-cover rounded-lg glowing">
+                       
+                    <!-- Floating decorative elements around image -->
+                    <div class="absolute -top-4 -right-4 w-8 h-8 bg-yellow-400 rounded-full floating opacity-70"></div>
+                    <div class="absolute -bottom-4 -left-4 w-6 h-6 bg-yellow-300 rounded-full floating opacity-50" style="animation-delay: 1s;"></div>
+                </div>
+
+                <!-- Right Column - Content -->
+                <div class="space-y-8 slide-in">
+                    <!-- Description -->
+                    <div class="glass-effect rounded-xl p-8 hover:scale-105 transition-all duration-300 border-2 border-yellow-400 border-opacity-30">
+                        <h2 class="text-center text-2xl font-bold mb-4 neon-text pulsing" style="font-family: 'Orbitron', sans-serif;">BaseCamp</h2>
+                        <p class="text-gray-300 text-md leading-relaxed mb-6 text-justify fade-in-up">
+                            At GridLess Media Solutions, we specialize in marketing consulting tailored for outdoor, off-road, and overland brands. Our team combines a deep understanding of nature with a passion for cinematography, videography, and photography. We help you create captivating content that resonates with your audience. From strategic planning to copywriting and editing, we provide comprehensive support to elevate your marketing efforts. Whether you're launching a new product or looking to strengthen your brand presence, our expertise will help you navigate the rugged terrain of the outdoor industry with confidence.
+                        </p>
+                        
+                        <!-- Animated feature list -->
+                        <div class="space-y-2 fade-in-up">
+                            <div class="flex items-center space-x-3 hover:scale-105 transition-transform">
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full glowing"></div>
+                                <span class="text-yellow-300 font-semibold">3 POSTS/WEEK</span>
+                            </div>
+                            <div class="flex items-center space-x-3 hover:scale-105 transition-transform" style="animation-delay: 0.2s;">
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full glowing"></div>
+                                <span class="text-yellow-300 font-semibold">1 PLATFORM (OPTIONALLY 2)</span>
+                            </div>
+                            <div class="flex items-center space-x-3 hover:scale-105 transition-transform" style="animation-delay: 0.4s;">
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full glowing"></div>
+                                <span class="text-yellow-300 font-semibold">10 EDITED PHOTOS/MONTH</span>
+                            </div>
+                            <div class="flex items-center space-x-3 hover:scale-105 transition-transform" style="animation-delay: 0.6s;">
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full glowing"></div>
+                                <span class="text-yellow-300 font-semibold">1 CONTENT PLANNING CALL/MONTH</span>
+                            </div>
+                            <div class="flex items-center space-x-3 hover:scale-105 transition-transform" style="animation-delay: 0.8s;">
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full glowing"></div>
+                                <span class="text-yellow-300 font-semibold">1 ROUND OF REVISIONS PER ASSET</span>
+                            </div>
+                            <div class="flex items-center space-x-3 hover:scale-105 transition-transform" style="animation-delay: 1s;">
+                                <div class="w-3 h-3 bg-yellow-400 rounded-full glowing"></div>
+                                <span class="text-yellow-300 font-semibold">ANALYTICS REPORT</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <button onclick="window.location.href='index.html#contact'" class="mt-6 mx-auto block md:ml-48 md:mx-0 bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-black font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-110 glowing pulsing">
+                            🚀 Connect to our Adventure!
+              </button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#1B3C53] py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-gray-400">&copy; 2024 Dan Beardly Adventures. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
